@@ -38,3 +38,89 @@ Ejemplos comunes: .</p>
     </footer>
   </body>
 </html>
+
+
+// ...existing code...
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trabajo de grado — Documentación</title>
+    <style>
+      body { font-family: Arial, Helvetica, sans-serif; max-width: 1000px; margin: 0 auto; padding: 1rem; line-height:1.5; }
+      header { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem 0; }
+      nav a { margin-right:0.75rem; text-decoration:none; color:#0366d6; }
+      nav a:hover { text-decoration:underline; }
+      section { padding:1.5rem 0; border-top:1px solid #eee; }
+      .hero { max-width:800px; }
+      .toc { background:#f9f9f9; padding:0.75rem; border-radius:6px; }
+      footer { font-size:0.9rem; color:#666; padding:1rem 0; }
+      html { scroll-behavior: smooth; }
+      pre { background:#222; color:#eee; padding:0.75rem; overflow:auto; border-radius:6px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hero">
+        <h1>Trabajo de grado — Prácticas</h1>
+        <p>Índice y documentación de las actividades realizadas.</p>
+      </div>
+      <nav aria-label="Navegación principal">
+        <a href="#introduccion">Introducción</a>
+        <a href="#metodos">Métodos</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#codigo">Código</a>
+        <a href="#imagenes">Imágenes</a>
+      </nav>
+    </header>
+
+    <aside class="toc" aria-label="Índice">
+      <strong>Índice</strong>
+      <ul>
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#metodos">Métodos</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+        <li><a href="#codigo">Código</a></li>
+        <li><a href="#imagenes">Imágenes</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <section id="introduccion">
+        <h2>Introducción</h2>
+        <p>Descripción general de las prácticas y objetivos.</p>
+      </section>
+
+      <section id="metodos">
+        <h2>Métodos</h2>
+        <p>Explicación de métodos estadísticos, limpieza de datos y procedimientos.</p>
+      </section>
+
+      <section id="resultados">
+        <h2>Resultados</h2>
+        <p>Gráficos, tablas y mapas de calor. Puedes incrustar imágenes con &lt;img&gt; desde /assets/images/.</p>
+      </section>
+
+      <section id="codigo">
+        <h2>Código de ejemplo</h2>
+        <p>Fragmentos relevantes:</p>
+        <pre><code># ejemplo Python
+def saludar():
+    print("Hola desde las prácticas")</code></pre>
+        <p>Para archivos de código completos, crea una carpeta /assets/code/ y enlaza los archivos.</p>
+      </section>
+
+      <section id="imagenes">
+        <h2>Imágenes</h2>
+        <p>Ejemplo de imagen incluida (coloca tus imágenes en assets/images):</p>
+        <img src="assets/images/miimagen.png" alt="Ejemplo" style="max-width:100%;border:1px solid #ddd;padding:4px;">
+      </section>
+    </main>
+
+    <footer>
+      <p>Generado como documentación del trabajo de grado — GitHub Pages</p>
+    </footer>
+  </body>
+</html>
+// ...existing code...
