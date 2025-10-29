@@ -216,29 +216,39 @@
          se espera que los datos de la distribución se distribuyan en forma de campana simétrica alrededor de la media. Algunas de las pruebas de normalidad más usandas son
          la prueba de Shapiro-Wilk,la prueba de Kolmogorov-Smirnov, la prueba de Anderson-Darling, entre otras. la forma en como funciona el test de normalidad es
          comparando la distribución de los datos con una distribución normal teórica. Si la diferencia entre ambas distribuciones es pequeña, se concluye que los datos siguen
-         una distribución normal, es decir el p-vale es menor a 0.05; de lo contrario, se concluye que los datos no siguen una distribución normal, es decir, el p-value es 
-         mayor a 0.05.
-         
-
+         una distribución normal, es decir el p-vale es menor a 0.05; de lo contrario, se concluye que los datos no siguen una distribución normal, es decir, el p-value es
+         mayor a 0.05. Para nuestros casos de estudio, las pruebas más aplicadas fueron la prueba Wilcoxon y  la prueba de Shapiro-Wilk para mirar si los datos eran estadísticamente significativos (p-value<0.05)
+        o no hay evidencia suficiente para rechazar la hipótesis nula (p-value>0.05).
+        En este caso, se decide aplicar la prueba Wilcoxon y en algunos otro casos la prueba de Shapiro-Wilk para mirar si los datos eran estadísticamente significativos (p-value<0.05) o no hay evidencia
+        suficiente para rechazar la hipótesis nula (p-value>0.05). 
          </p>
 
-
-      </p>
-
       <h3 id="introduccion-Pruebas paramétricas y no paramétricas"><section id="Pruebas paramétricas y no paramétricas"></section></h3>
-      <ul>
-       <li><strong>Objetivo general:</strong> Describir en una frase el propósito principal del trabajo.</li>
-       <li><strong>Objetivos específicos:</strong> Listar 2–4 objetivos concretos (por ejemplo: comparar técnicas, automatizar procesos, validar hipótesis).</li>
-      </ul>
-
+   
       <h3 id="introduccion-Matrices de correlación">Alcance</h3>
-      <p>Delimitación del trabajo: qué se incluyó y qué se dejó fuera. Explica brevemente las limitaciones y supuestos.
-        Esta sección ayuda a aclarar el tamaño y la aplicabilidad del estudio.</p>
+      <p>Una matriz de correlación, también conocida como tabla de calor, es una representación gráfica que muestra la relación entre diferentes variables en un conjunto de datos.
+        Cada celda de la matriz representa el coeficiente de correlación entre dos variables, lo que permite identificar patrones y relaciones significativas de manera visual por medio de colores,
+        donde los colores más fuertes representan correlación alta y los colores más suaves correlación baja, en algunos casos o rojo para correlación baja y azul para correlación alta
+        facilitando la interpretación de los datos.  Esto es útil debido a que cuando tenemos muchisimos datos es muy dificil visualizar la correlación uno por uno,
+        mientras que una matriz de correlación permite ver todas las relaciones de un vistazo. En nuestro caso particular usamos tablas de calor para visualizar la correlación que se obtuvo
+        en dos tablas cuyos datos se habían obtenido mediante la prueba de correlación de Pearson. Se realizaron dos tablas de calor, en una podemos ver que la correlación más alta está
+      en un color fuerte y la correlación baja está en un color más suave, mientras que en la otra podemos evidenciar que lo único que nos importa es visualizar la correlación alta.
+    </p>
     </section>
 
       <section id="Limpieza de datos">
         <h2>OpenRefine</h2>
-        <p>Se emplearon diversas técnicas de investigación para recopilar y analizar los datos necesarios para el desarrollo del trabajo.</p>
+        <p>Es natural para nosotros trabajar con miles de datos que son reportado la gran mayoría en  formatos de excel, csv, .json. Sin embargo estos datos son muy propensos a tener errores
+          pues son recolectados de diferentes fuentes, en diferentes momentos, y recolectado por personas, lo cual es natural que por la cantidad de datos haya errores
+          por lo que es común encontrar datos incompletos, inconsistentes o duplicados. OpenRefine es una herramienta poderosa
+          que nos permite limpiar y transformar estos datos de manera eficiente. Limpiar datos es necesario para asegurar la calidad y precisión de los análisis posteriores y para poder
+          acceder a la información obtenida de manera más fácil. Aunque en python es relativamente sencillo limpiar data, también existe la opción de openRefine. Esta aplicación funciona
+          de manera similar a una hoja de cálculo, pero con capacidades avanzadas de limpieza y transformación de datos. Es muy intuitiva y fácil de usar OpenRefine ofrece una interfaz intuitiva
+          que facilita la identificación y corrección de errores comunes en los datos, como valores faltantes, formatos inconsistentes o duplicados. Además, permite realizar transformaciones
+          complejas en los datos, como la agrupación, la filtración y la reestructuración, lo que la convierte en una herramienta versátil para el análisis de datos.
+          
+
+        </p>
       </section>
 
       <section id="Realización de">
