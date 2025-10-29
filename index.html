@@ -6,7 +6,7 @@
     <title>Trabajo de grado — Documentación</title>
     <style>
       body { font-family: Arial, Helvetica, sans-serif; max-width: 1000px; margin: 0 auto; padding: 1rem; line-height:1.5; }
-      header { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem 0; }
+      header { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem 0; position:relative; }
       nav a { margin-right:0.75rem; text-decoration:none; color:#0366d6; }
       nav a:hover { text-decoration:underline; }
       section { padding:1.5rem 0; border-top:1px solid #eee; }
@@ -15,6 +15,24 @@
       footer { font-size:0.9rem; color:#666; padding:1rem 0; }
       html { scroll-behavior: smooth; }
       pre { background:#222; color:#eee; padding:0.75rem; overflow:auto; border-radius:6px; }
+
+      /* Hamburger styles */
+      #menu-toggle { display:none; background:none; border:0; cursor:pointer; padding:6px; }
+      .hamburger { width:22px; height:2px; background:#0366d6; display:block; position:relative; transition: all .2s ease; }
+      .hamburger::before, .hamburger::after { content:""; position:absolute; left:0; width:22px; height:2px; background:#0366d6; transition: all .2s ease; }
+      .hamburger::before { top:-7px; }
+      .hamburger::after { top:7px; }
+      #menu-toggle.active .hamburger { background:transparent; }
+      #menu-toggle.active .hamburger::before { transform: translateY(7px) rotate(45deg); }
+      #menu-toggle.active .hamburger::after { transform: translateY(-7px) rotate(-45deg); }
+
+      /* Responsive: hide nav and show hamburger on small screens */
+      @media (max-width: 800px) {
+        nav { display:none; position:absolute; right:1rem; top:72px; background:#fff; padding:0.75rem 1rem; box-shadow:0 6px 18px rgba(0,0,0,0.08); border-radius:6px; flex-direction:column; gap:0.5rem; z-index:30; }
+        nav.open { display:flex; }
+        #menu-toggle { display:block; }
+        header { align-items:flex-start; }
+      }
     </style>
   </head>
   <body>
@@ -23,6 +41,12 @@
         <h1>Trabajo de grado</h1>
         <p>Índice y documentación de las actividades realizadas.</p>
       </div>
+
+      <!-- BOTÓN HAMBURGUESA (móvil) -->
+      <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+
       <nav aria-label="Navegación principal">
         <a href="#introduccion">Introducción</a>
         <a href="#metodos">Métodos</a>
@@ -31,32 +55,9 @@
         <a href="#imagenes">Imágenes</a>
       </nav>
     </header>
-   </head>   
-   <style>
-      /* HAMBURGER BUTTON */
 
-.hamburger { 
-    position : fixed; 
-    top: 1rem;
-    left: 1rem;
-    background: var(--car);
-    border: none;
-    border-radius: 10px;
-    padding: 0.6rem;
-    cursor: pointer;
-    z-index: 300;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s;
-}
-.hamburger:hover { 
-    background: var(--car-hover);
-    color: white;
-}
- </style>
-  </head>
-  
+
+
     <main>
       <section id="introduccion">
         <h2>Introducción</h2>
@@ -75,7 +76,8 @@ Exposiciones temáticas y socialización de trabajos realizados.</p>
 
       <section id="metodos">
         <h2>Métodos</h2>
-        <p>Explicación de métodos estadísticos, limpieza de datos y procedimientos.</p>
+     yle>
+  </h   <p>Explicación de métodos estadísticos, limpieza de datos y procedimientos.</p>
       </section>
 
       <section id="resultados">
@@ -102,6 +104,26 @@ def saludar():
     <footer>
       <p>Generado como documentación del trabajo de grado — GitHub Pages</p>
     </footer>
+
+    <!-- JavaScript para alternar el menú hamburguesa -->
+    <script>
+      (function(){
+        const btn = document.getElementById('menu-toggle');
+        const nav = document.querySelector('nav[aria-label="Navegación principal"]');
+        if(!btn || !nav) return;
+        btn.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          btn.classList.toggle('active', open);
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        // Cerrar menú al hacer clic en un enlace (útil en móvil)
+        nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+          nav.classList.remove('open');
+          btn.classList.remove('active');
+          btn.setAttribute('aria-expanded', 'false');
+        }));
+      })();
+    </script>
+
   </body>
 </html>
-// ...existing code...
