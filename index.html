@@ -12,6 +12,37 @@
       section { padding:1.5rem 0; border-top:1px solid #eee; }
       .hero { max-width:800px; }
       .toc { background:#f9f9f9; padding:0.75rem; border-radius:6px; }
+      /* Subtabla de contenidos (subsecciones) */
+      .subtoc { list-style: none; padding-left: 0.5rem; margin-top: 0.25rem; margin-bottom: 0.75rem;
+        overflow: hidden; /* para animación */
+        max-height: 999px; /* alto grande por defecto (expandido) */
+        transition: max-height 260ms ease, opacity 200ms ease;
+        opacity: 1;
+      }
+      .subtoc li { margin: 0.15rem 0; }
+      .subtoc.collapsed { max-height: 0; opacity: 0; }
+
+      /* Caret (triángulo) junto a 'Introducción' que rota según aria-expanded */
+      #toc-introduccion {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        cursor: pointer;
+      }
+      #toc-introduccion::after {
+        content: '▾';
+        display: inline-block;
+        transition: transform 220ms ease;
+        font-size: 0.9rem;
+        line-height: 1;
+        transform-origin: center;
+        color: rgba(0,0,0,0.6);
+      }
+      /* Rotar caret cuando esté colapsado (aria-expanded=false) */
+      #toc-introduccion[aria-expanded="false"]::after {
+        transform: rotate(-90deg);
+      }
       footer { font-size:0.9rem; color:#666; padding:1rem 0; }
       html { scroll-behavior: smooth; }
       pre { background:#222; color:#eee; padding:0.75rem; overflow:auto; border-radius:6px; }
@@ -51,7 +82,7 @@
           transform: translateX(4px);
       }
 
-      /*Hamvurger <button></button>*/
+      /*Hamburger button*/
       .hamburger {
         position: fixed;
         top: 1rem;
@@ -135,11 +166,13 @@
     <aside class="sidebar" id="sidebar">
       <h2>Contenido</h2>
       <nav>
-        <a href="#introduccion">Introducción</a>
-        <ul class="subtoc" style="list-style:none; padding-left:0.5rem; margin-top:0.25rem; margin-bottom:0.75rem;">
-          <li style="margin:0.15rem 0;"><a href="#introduccion-antecedentes">Antecedentes</a></li>
-          <li style="margin:0.15rem 0;"><a href="#introduccion-objetivos">Objetivos</a></li>
-          <li style="margin:0.15rem 0;"><a href="#introduccion-alcance">Alcance</a></li>
+        <!-- Añadimos id para poder asociar el toggle desde JS. -->
+        <a href="#introduccion" id="toc-introduccion" aria-expanded="true">Introducción</a>
+        <ul class="subtoc">
+          <li><a href="#Pruebas paramétricas y no paramétricas">Antecedentes</a></li>
+          <li><a href="#Matrices de correlación">Objetivos</a></li>
+          <li><a href="#OpenRefine">Alcance</a></li>
+          <li><a href="#Macros y PowerAutomate">Alcance</a></li>
         </ul>
         <a href="#metodologia">Metodología</a>
         <a href="#resultados">Resultados</a>
@@ -205,6 +238,19 @@
       const sidebar = document.getElementById('sidebar');
       const mainContent = document.getElementById('main-content');
 
+      // toggle subsecciones de Introducción
+      const introTocLink = document.getElementById('toc-introduccion');
+      const subtoc = document.querySelector('.subtoc');
+      if (introTocLink && subtoc) {
+        // Mantener aria-expanded actualizado
+        introTocLink.addEventListener('click', (e) => {
+          // Alternar visualización de la sublista. No prevenimos la navegación por ancla.
+          subtoc.classList.toggle('collapsed');
+          const expanded = !subtoc.classList.contains('collapsed');
+          introTocLink.setAttribute('aria-expanded', String(expanded));
+        });
+      }
+
       //estado inicial ( sidebar visible en desktop)
       let isCollapsed = false;
 
@@ -215,7 +261,7 @@
         } else {
           isCollapsed = !isCollapsed;
           sidebar.classList.toggle('collapsed', isCollapsed);
-          main.classList.toggle('collapsed', isCollapsed);
+          mainContent.classList.toggle('collapsed', isCollapsed);
           }
         };
 
