@@ -189,15 +189,43 @@
 
     <section id="introduccion">
       <h2>Introducción</h2>
-      <p>El objetivo de este documento es plasmar lo aprendido durante el desarrollo del trabajo de grado y explicar
-        las metodologías, herramientas y resultados principales. A continuación se presentan subsecciones con
-        mayor detalle; haz clic en la barra lateral para navegar directamente a cada una.</p>
+      <p>El objetivo de este documento es plasmar todo lo aprendido a partir de os proyectos realizados. 
+      La presentación de los temás se harán en orden cronólogico, es decir, desde la primera actividad propuesta
+      tras mi llegada hasta la última correspondiente a la fecha de entrega de este trabajo.
+      Se utilizaron diferentes herramientas y métodologías a lo largo del proceso. Empezamos verficando algunas fórmulas estadisticas 
+      ya creadas con el fin de entender su funcionamiento y aplicación y detectar errores en ellas que se pudieran reportar para hacerles su respectiva corrección.
+      En el proceso de verificar estás formulas se descubrió que pese a que estaban bien, la base de datos era carente de información, pues contaba conmuchas celdas vacías.
+      Allí se introdujo entonces las pruebas paramétricas y no parámetricas en donde comparábamos dos datos diferentes. Una con las celdas vacías llenadas con promedios y otra llenando
+      celdas vacías con la función Beta, que básicamente lo que hacía era darle un valor a esas celdas vacías entre  0 y 1 de tal manera que no se alterara la información que ya se tenía
+      al momento de hacer cálculos y utilizar las fórmulas que ya estaban construidas. Con estas dos datas lo que hicimos fue primero verificar si los datos se comportaban con una distribción 
+      normal o no y dependiendo eso decidimos si aplicar una prueba paramétrica o una no paramétrica. Como el resultado nos arrojo que los datos no se comportaban como una distribución
+      normal se decide aplicar la prueba Wilcoxon para mirar si los datos eran estadisticamente significativos (p-value<0.05)   o no hay evidencia suficiente para rechazar la hipótesis nula (p-value>0.05).  
+      Por otro lado se utilizaron matrices de correlación para mirar la relación que habían entre dos tablas de datos y su correlación entre ellas. 
+      Tanbién en el proceso de aprender a limpiar data con el fin de tener una base de datos más rubusta y copleta, aparte de utilizar python con este fin
+      utilizamos OpenRefine, que es  una herramienta útil que nos permite limpiar gran cantidas de datos de manera más optima y sencilla.
+      Por otro lado, para automatizar procesos repititvos y tediosos utilizamos macros en excel que luego fueron integradas con PowerAutomate
+      para hacer flujos automaticos que nos permitieron ahorrar tiempo y esfuerzo en tareas largas y repetitivas. A continuación daremos un informe detallado de 
+      cada una de estas actividades realizadas en esta introducción con el fin de plazmar lo aprendido. Se tratará de mostrar el resultado de cada cosa con el cuidado
+      de no revelar información confidencial de la empresa e incluso alterando los datos en los ejemplos y el código por seguridad y privacidad de la empresa. Se dará una breve explicación de cada uno de
+      los temas tratados para poner el lector en contexto y se mostrará la aplicación que se tuvo en trabajo propuesto, así como los resultados obtenidos. Por último al final tendremos
+      conclusiones y recomendaciones dadas en base a lo aprendido en todo este proceso.
+      </p>
 
-      <h3 id="introduccion-Test de normalidad">Antecedentes</h3>
-      <p>Breve contexto histórico y motivación del proyecto. Aquí puedes describir las actividades previas, los datos
-        iniciales y por qué se eligieron las técnicas aplicadas.</p>
+      <h3 id="introduccion-Test de normalidad"> Test de normalidad</h3> 
+      <p>Se aplican pruebas de normalidad a nuestros datos para determinar si nuestros datos  siguen una distribución normal. Gráficamente cuando se obtiene normalidad
+         se espera que los datos de la distribución se distribuyan en forma de campana simétrica alrededor de la media. Algunas de las pruebas de normalidad más usandas son
+         la prueba de Shapiro-Wilk,la prueba de Kolmogorov-Smirnov, la prueba de Anderson-Darling, entre otras. la forma en como funciona el test de normalidad es
+         comparando la distribución de los datos con una distribución normal teórica. Si la diferencia entre ambas distribuciones es pequeña, se concluye que los datos siguen
+         una distribución normal, es decir el p-vale es menor a 0.05; de lo contrario, se concluye que los datos no siguen una distribución normal, es decir, el p-value es 
+         mayor a 0.05.
+         
 
-      <h3 id="introduccion-Pruebas paramétricas y no paramétricas">Objetivos</h3>
+         </p>
+
+
+      </p>
+
+      <h3 id="introduccion-Pruebas paramétricas y no paramétricas"><section id="Pruebas paramétricas y no paramétricas"></section></h3>
       <ul>
        <li><strong>Objetivo general:</strong> Describir en una frase el propósito principal del trabajo.</li>
        <li><strong>Objetivos específicos:</strong> Listar 2–4 objetivos concretos (por ejemplo: comparar técnicas, automatizar procesos, validar hipótesis).</li>
@@ -213,7 +241,7 @@
         <p>Se emplearon diversas técnicas de investigación para recopilar y analizar los datos necesarios para el desarrollo del trabajo.</p>
       </section>
 
-      <section id="Realización de Macros">
+      <section id="Realización de">
         <h2>Resultados</h2>
         <p>Los resultados obtenidos demuestran la efectividad de las estrategias implementadas durante el proyecto.</p>
       </section>
