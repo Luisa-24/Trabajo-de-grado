@@ -16,114 +16,197 @@
       html { scroll-behavior: smooth; }
       pre { background:#222; color:#eee; padding:0.75rem; overflow:auto; border-radius:6px; }
 
-      /* Hamburger styles */
-      #menu-toggle { display:none; background:none; border:0; cursor:pointer; padding:6px; }
-      .hamburger { width:22px; height:2px; background:#0366d6; display:block; position:relative; transition: all .2s ease; }
-      .hamburger::before, .hamburger::after { content:""; position:absolute; left:0; width:22px; height:2px; background:#0366d6; transition: all .2s ease; }
-      .hamburger::before { top:-7px; }
-      .hamburger::after { top:7px; }
-      #menu-toggle.active .hamburger { background:transparent; }
-      #menu-toggle.active .hamburger::before { transform: translateY(7px) rotate(45deg); }
-      #menu-toggle.active .hamburger::after { transform: translateY(-7px) rotate(-45deg); }
-
-      /* Responsive: hide nav and show hamburger on small screens */
-      @media (max-width: 800px) {
-        nav { display:none; position:absolute; right:1rem; top:72px; background:#fff; padding:0.75rem 1rem; box-shadow:0 6px 18px rgba(0,0,0,0.08); border-radius:6px; flex-direction:column; gap:0.5rem; z-index:30; }
-        nav.open { display:flex; }
-        #menu-toggle { display:block; }
-        header { align-items:flex-start; }
+      /* Sidebar */
+      .sidebar { 
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 260px;
+        background-color: #f4f4f4;
+        padding: 1.5rem;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        overflow-y: auto;
       }
-    </style>
+      .sidebar.collapsed { transform : translateX(-100%)
+       }
+      .sidebar h2 { font-weight:700;
+          font-size: 1.1rem; 
+          margin-bottom: 1rem; 
+          color : var(--accent-color);
+          text-transform : uppercase;
+          letter-spacing:0.05em;
+         }
+      .sidebar nav a { display:flex; 
+        align-items :center; 
+        gap:0.6rem; 
+        text-decoration : none;
+         color: var(--text);
+         padding: 0.5rem 0.8rem; 
+        border-radius:8px; transition: all 0.2s ease; 
+        font-weight:500;
+      } 
+      .sidebar nav a:hover {background: var(--accent);
+         color: white;
+          transform: translateX(4px);
+      }
+
+      /*Hamvurger <button></button>*/
+      .hamburger {
+        position: fixed;
+        top: 1rem;
+        left:1rem;
+        background:var(--card);
+        border: none;
+        box-shadow:var(--shadow);
+        padding:0.6rem;
+        cursor:pointer;
+        z-index:300;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        transition: background 0.3s;
+      }
+      .hamburger:hover { background:var(--accent); color:white; }
+
+      /* Main <content></content> */
+      main {
+        margin-left: 260px; 
+        padding: 2rem 3rem;
+        max-width:900px;
+        width :100%;
+        transition: margin-left 0.3s ease;
+      }
+      main.collapsed { margin-left: 0; }
+
+      h2 { font-size :1.4rem;
+      font-weight:600;
+      margin-top:2.5rem;
+      margin-bottom: 1rem;
+      color:var(--text);
+      border-bottom:2px solid var(--accent);
+      padding-bottom:0.3rem;
+    }
+    h3 { font-size:1.1rem;
+      font-weight:500;
+      margin-top:2rem;
+      margin-bottom:0.75rem;
+      color:var(--text);
+    }
+
+    p { 
+      margin-bottom: 1rem;
+      text-align:justify;
+    }
+
+    ul {
+      margin-left :1.5rem;
+      margin-bottom:1rem;
+    }
+    li {
+      margin-bottom:0.5rem;
+    }
+    
+    strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 900px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .sidebar.active {
+        transform: translateX(0);
+      }
+      main {
+        margin-left: 0;
+        padding: 1.5rem;
+      }
+    }
+  </style>
   </head>
   <body>
-    <header>
-      <div class="hero">
-        <h1>Trabajo de grado</h1>
-        <p>Índice y documentación de las actividades realizadas.</p>
-      </div>
+    <!-- Botón de hamburguesa -->
+    <button class="hamburger" id="menuBtn" aria-label="Abrir menú">
+      <i data-lucide="menu"></i>
+    </button>
 
-      <!-- BOTÓN HAMBURGUESA (móvil) -->
-      <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
-        <span class="hamburger" aria-hidden="true"></span>
-      </button>
-
-      <nav aria-label="Navegación principal">
+    <!--sidebar-->
+    <aside class="sidebar" id="sidebar">
+      <h2>Contenido</h2>
+      <nav>
         <a href="#introduccion">Introducción</a>
-        <a href="#metodos">Métodos</a>
+        <a href="#metodologia">Metodología</a>
         <a href="#resultados">Resultados</a>
-        <a href="#codigo">Código</a>
-        <a href="#imagenes">Imágenes</a>
+        <a href="#conclusiones">Conclusiones</a>
+        <a href="#referencias">Referencias</a>
       </nav>
-    </header>
+    </aside>
+    <!--contenido-->
+    <main id="main-content">
+      <header>
+        <h1>Documentación del Trabajo de Grado</h1>
+      </header>
 
-
-
-    <main>
       <section id="introduccion">
         <h2>Introducción</h2>
-        <p>El objetivo de este documento es plasmar todo lo que he aprendido a partir de los proyectos
-realizados. La presentación se hará en orden cronológico, desde la primera actividad propuesta
-tras mi llegada hasta la última, correspondiente a la fecha de entrega de este trabajo.
-Algunos de los temas que se abordarán con profundidad incluyen:
-Interpretación y verificación de fórmulas estadísticas.
-Creación de gráficos y mapas de calor.
-Análisis estadísticos con funciones paramétricas (como los tests de Pearson y Shapiro-
-Wilk) y no paramétricas para evaluar correlaciones.
-Desarrollo de macros y automatización con Power Automate.
-Uso de OpenRefine para limpieza de datos eficiente.
-Exposiciones temáticas y socialización de trabajos realizados.</p>
+        <p>Este documento presenta la estructura y el contenido del trabajo de grado realizado para la obtención del título académico correspondiente.</p>
       </section>
 
-      <section id="metodos">
-        <h2>Métodos</h2>
-     yle>
-  </<p>Explicación de métodos estadísticos, limpieza de datos y procedimientos.</p>
+      <section id="metodologia">
+        <h2>Metodología</h2>
+        <p>Se emplearon diversas técnicas de investigación para recopilar y analizar los datos necesarios para el desarrollo del trabajo.</p>
       </section>
 
       <section id="resultados">
         <h2>Resultados</h2>
-        <p>Gráficos, tablas y mapas de calor. Puedes incrustar imágenes con &lt;img&gt; desde /assets/images/.</p>
+        <p>Los resultados obtenidos demuestran la efectividad de las estrategias implementadas durante el proyecto.</p>
       </section>
 
-      <section id="codigo">
-        <h2>Código de ejemplo</h2>
-        <p>Fragmentos relevantes:</p>
-        <pre><code># ejemplo Python
-def saludar():
-    print("Hola desde las prácticas")</code></pre>
-        <p>Para archivos de código completos, crea una carpeta /assets/code/ y enlaza los archivos.</p>
+      <section id="conclusiones">
+        <h2>Conclusiones</h2>
+        <p>El trabajo de grado concluye con una serie de recomendaciones basadas en los hallazgos presentados.</p>
       </section>
 
-      <section id="imagenes">
-        <h2>Imágenes</h2>
-        <p>Ejemplo de imagen incluida (coloca tus imágenes en assets/images):</p>
-        <img src="assets/images/miimagen.png" alt="Ejemplo" style="max-width:100%;border:1px solid #ddd;padding:4px;">
+      <section id="referencias">
+        <h2>Referencias</h2>
+        <p>Se incluyen todas las fuentes bibliográficas consultadas durante la realización del trabajo.</p>
       </section>
+
+      <footer>
+        &copy; 2024 Trabajo de Grado. Todos los derechos reservados.
+      </footer>
     </main>
 
-    <footer>
-      <p>Generado como documentación del trabajo de grado — GitHub Pages</p>
-    </footer>
-
-    <!-- JavaScript para alternar el menú hamburguesa -->
     <script>
-      (function(){
-        const btn = document.getElementById('menu-toggle');
-        const nav = document.querySelector('nav[aria-label="Navegación principal"]');
-        if(!btn || !nav) return;
-        btn.addEventListener('click', () => {
-          const open = nav.classList.toggle('open');
-          btn.classList.toggle('active', open);
-          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        // Cerrar menú al hacer clic en un enlace (útil en móvil)
-        nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-          nav.classList.remove('open');
-          btn.classList.remove('active');
-          btn.setAttribute('aria-expanded', 'false');
-        }));
-      })();
-    </script>
+      lucide.createIcons();
+      const menuBtn = document.querySelector('.hamburger');
+      const sidebar = document.getElementById('sidebar');
+      const mainContent = document.getElementById('main-content');
 
+      //estado inicial ( sidebar visible en desktop)
+      let isCollapsed = false;
+
+      const toggleMenu = ()=> {
+        // en pantallas pequeñas
+        if (window.innerHeight<=900){
+          sidebar.classList.toggle('active');
+        } else {
+          isCollapsed = !isCollapsed;
+          sidebar.classList.toggle('collapsed', isCollapsed);
+          main.classList.toggle('collapsed', isCollapsed);
+          }
+        };
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Cerrar el menu si hace click fuera de él
+        document.addEventListener('click', (event) => {
+          if (window.innerWidth <= 900 && !sidebar.contains(event.target) && !menuBtn.contains(event.target)){
+            sidebar.classList.remove('active');
+          }
+        });
+    </script>
   </body>
 </html>
+
