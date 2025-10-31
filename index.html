@@ -247,7 +247,6 @@
 
       <section id="introduccion-Pruebas paramétricas y no paramétricas">
         <h2>Pruebas paramétricas y no paramétricas</h2>
-        <h3>Pruebas paramétricas</h3>
       <p>Las pruebas paramétricas y no paramétricas son pilares fundamentales del análisis estadístico, utilizadas para evaluar hipótesis, comparar grupos, y establecer relaciones entre variables con base en evidencia cuantitativa. 
         La elección entre una u otra no es arbitraria: depende directamente de las propiedades de los datos, como su tipo (cuantitativo, ordinal, categórico), su distribución (normal o no normal), la presencia de valores atípicos, 
         y el tamaño de la muestra..</p>
@@ -277,12 +276,6 @@
     <li><strong>Spearman:</strong> Evalúa correlación ordinal o no lineal.</li>
   </ul>
 </section>
-
-
-
-
-
-
 
 </section>
       <section id="introduccion-Matrices de correlación">
@@ -345,7 +338,8 @@
       if (introTocLink && subtoc) {
         // Mantener aria-expanded actualizado
         introTocLink.addEventListener('click', (e) => {
-          e.preventDefault(); // Evitar navegación inmediata
+          e.preventDefault(); // Evitar navegación por defecto
+          
           // Alternar visualización de la sublista
           const isCurrentlyCollapsed = subtoc.classList.contains('collapsed');
           
@@ -357,6 +351,12 @@
             subtoc.classList.remove('expanded');
             subtoc.classList.add('collapsed');
             introTocLink.setAttribute('aria-expanded', 'false');
+          }
+          
+          // Navegar a la sección de Introducción
+          const introSection = document.getElementById('introduccion');
+          if (introSection) {
+            introSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
       }
