@@ -13,28 +13,65 @@
         --card: #fff;
         --shadow: 0 2px 8px rgba(0,0,0,0.1);
       }
-      body { font-family: Arial, Helvetica, sans-serif; max-width: 1000px; margin: 0 auto; padding: 1rem; line-height:1.5; }
+      body { 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        max-width: 1000px; 
+        margin: 0 auto; 
+        padding: 1rem; 
+        line-height:1.6;
+        background: #fafafa;
+      }
+      
+      /* Header Profesional */
       header { 
         display:flex; 
         justify-content:space-between; 
         align-items:center; 
-        gap:1.5rem; 
-        padding:2rem 0; 
+        gap:2rem; 
+        padding:2.5rem 2rem; 
         position:relative;
-        border-bottom: 3px solid var(--accent-color);
-        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+        margin-bottom: 2rem;
+        border-left: 5px solid var(--accent-color);
       }
-      header h1 {
+      
+      .header-content {
         flex: 1;
-        margin: 0;
-        font-size: 1.8rem;
-        color: var(--text);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
       }
+      
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+      }
+      
+      .header-subtitle {
+        font-size: 0.95rem;
+        color: #666;
+        font-weight: 400;
+        margin: 0;
+      }
+      
       .logo-unal {
-        height: 80px;
+        height: 90px;
         width: auto;
         object-fit: contain;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        transition: transform 0.3s ease;
       }
+      
+      .logo-unal:hover {
+        transform: scale(1.05);
+      }
+      
       nav a { margin-right:0.75rem; text-decoration:none; color:#0366d6; }
       nav a:hover { text-decoration:underline; }
       section { padding:1.5rem 0; border-top:1px solid #eee; }
@@ -80,9 +117,17 @@
       #toc-introduccion[aria-expanded="false"]::after {
         transform: rotate(-90deg);
       }
-      footer { font-size:0.9rem; color:#666; padding:1rem 0; }
+      
       html { scroll-behavior: smooth; }
-      pre { background:#222; color:#eee; padding:0.75rem; overflow:auto; border-radius:6px; }
+      pre { 
+        background:#2d3748; 
+        color:#e2e8f0; 
+        padding:1rem; 
+        overflow:auto; 
+        border-radius:8px;
+        border-left: 4px solid var(--accent-color);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
 
       /* Sidebar */
       .sidebar { 
@@ -91,35 +136,45 @@
         left: 0;
         height: 100%;
         width: 260px;
-        background-color: #f4f4f4;
+        background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
         padding: 1.5rem;
-        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        box-shadow: 2px 0 10px rgba(0,0,0,0.08);
         overflow-y: auto;
         transition: transform 0.3s ease;
         z-index: 200;
+        border-right: 1px solid #e9ecef;
       }
       .sidebar.collapsed { 
         transform: translateX(-100%);
       }
-      .sidebar h2 { font-weight:700;
-          font-size: 1.1rem; 
-          margin-bottom: 1rem; 
-          color : var(--accent-color);
-          text-transform : uppercase;
-          letter-spacing:0.05em;
-         }
-      .sidebar nav a { display:flex; 
-        align-items :center; 
+      .sidebar h2 { 
+        font-weight:700;
+        font-size: 1.1rem; 
+        margin-bottom: 1.5rem; 
+        color: var(--accent-color);
+        text-transform: uppercase;
+        letter-spacing:0.08em;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--accent-color);
+      }
+      .sidebar nav a { 
+        display:flex; 
+        align-items:center; 
         gap:0.6rem; 
-        text-decoration : none;
-         color: var(--text);
-         padding: 0.5rem 0.8rem; 
-        border-radius:8px; transition: all 0.2s ease; 
+        text-decoration: none;
+        color: #495057;
+        padding: 0.65rem 1rem; 
+        border-radius:8px; 
+        transition: all 0.2s ease; 
         font-weight:500;
+        font-size: 0.95rem;
+        margin-bottom: 0.3rem;
       } 
-      .sidebar nav a:hover {background: var(--accent);
-         color: white;
-          transform: translateX(4px);
+      .sidebar nav a:hover {
+        background: var(--accent-color);
+        color: white;
+        transform: translateX(4px);
+        box-shadow: 0 2px 8px rgba(3, 102, 214, 0.3);
       }
 
       /*Hamburger button*/
@@ -127,18 +182,26 @@
         position: fixed;
         top: 1rem;
         left:1rem;
-        background:var(--card);
-        border: none;
-        box-shadow:var(--shadow);
-        padding:0.6rem;
+        background: white;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        padding:0.7rem;
         cursor:pointer;
         z-index:300;
         display:flex;
         align-items:center;
         justify-content:center;
-        transition: background 0.3s;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        width: 40px;
+        height: 40px;
       }
-      .hamburger:hover { background:var(--accent); color:white; }
+      .hamburger:hover { 
+        background: var(--accent-color); 
+        color:white;
+        box-shadow: 0 4px 12px rgba(3, 102, 214, 0.4);
+        transform: translateY(-2px);
+      }
 
       /* Main <content></content> */
       main {
@@ -147,42 +210,98 @@
         max-width:900px;
         width :100%;
         transition: margin-left 0.3s ease;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
       }
       main.collapsed { margin-left: 0; }
 
-      h2 { font-size :1.4rem;
-      font-weight:600;
-      margin-top:2.5rem;
-      margin-bottom: 1rem;
-      color:var(--text);
-      border-bottom:2px solid var(--accent);
-      padding-bottom:0.3rem;
-    }
-    h3 { font-size:1.1rem;
-      font-weight:500;
-      margin-top:2rem;
-      margin-bottom:0.75rem;
-      color:var(--text);
-    }
+      h2 { 
+        font-size :1.6rem;
+        font-weight:600;
+        margin-top:2.5rem;
+        margin-bottom: 1.2rem;
+        color:#1a1a1a;
+        border-bottom:2px solid var(--accent-color);
+        padding-bottom:0.5rem;
+        position: relative;
+      }
+      
+      h2::before {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background: var(--accent-color);
+        box-shadow: 0 0 8px var(--accent-color);
+      }
+      
+      h3 { 
+        font-size:1.2rem;
+        font-weight:600;
+        margin-top:2rem;
+        margin-bottom:0.9rem;
+        color:#2c3e50;
+      }
 
     p { 
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       text-align:justify;
+      color: #444;
+      line-height: 1.7;
     }
 
     ul {
       margin-left :1.5rem;
-      margin-bottom:1rem;
+      margin-bottom:1.2rem;
+      color: #444;
     }
     li {
-      margin-bottom:0.5rem;
+      margin-bottom:0.6rem;
+      line-height: 1.6;
     }
     
     strong {
-      color: var(--text);
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+    
+    section {
+      padding: 1.5rem 0;
+      border-top: 1px solid #e9ecef;
+    }
+    
+    footer {
+      font-size: 0.9rem;
+      color: #6c757d;
+      padding: 2rem 0 1rem;
+      border-top: 2px solid #e9ecef;
+      margin-top: 3rem;
+      text-align: center;
     }
 
       @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+      }
+      
+      .header-content {
+        align-items: center;
+        text-align: center;
+      }
+      
+      header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .logo-unal {
+        height: 70px;
+      }
+      
       .sidebar {
         transform: translateX(-100%);
       }
@@ -225,7 +344,10 @@
     <!--contenido-->
     <main id="main-content">
       <header>
-        <h1>Documentación del Trabajo de Grado</h1>
+        <div class="header-content">
+          <h1>Documentación del Trabajo de Grado</h1>
+          <p class="header-subtitle">Universidad Nacional de Colombia • Facultad de Ciencias • 2025</p>
+        </div>
         <img src="https://unal.edu.co/typo3conf/ext/unal_skin_default/Resources/Public/images/escudoUnal_black.png" 
              alt="Logo Universidad Nacional de Colombia" 
              class="logo-unal">
