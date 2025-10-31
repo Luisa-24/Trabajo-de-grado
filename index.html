@@ -234,21 +234,20 @@
 
       <section id="introduccion-Test de normalidad">
         <h2>Test de normalidad</h2>
-        <p>Se aplican pruebas de normalidad a nuestros datos para determinar si nuestros datos  siguen una distribución normal. Gráficamente cuando se obtiene normalidad
-           se espera que los datos de la distribución se distribuyan en forma de campana simétrica alrededor de la media. Algunas de las pruebas de normalidad más usandas son
-           la prueba de Shapiro-Wilk,la prueba de Kolmogorov-Smirnov, la prueba de Anderson-Darling, entre otras. la forma en como funciona el test de normalidad es
-           comparando la distribución de los datos con una distribución normal teórica. Si la diferencia entre ambas distribuciones es pequeña, se concluye que los datos siguen
-           una distribución normal, es decir el p-vale es menor a 0.05; de lo contrario, se concluye que los datos no siguen una distribución normal, es decir, el p-value es
-         mayor a 0.05. Para nuestros casos de estudio, las pruebas más aplicadas fueron la prueba Wilcoxon y  la prueba de Shapiro-Wilk para mirar si los datos eran estadísticamente significativos (p-value<0.05)
-        o no hay evidencia suficiente para rechazar la hipótesis nula (p-value>0.05).
-        En este caso, se decide aplicar la prueba Wilcoxon y en algunos otro casos la prueba de Shapiro-Wilk para mirar si los datos eran estadísticamente significativos (p-value<0.05) o no hay evidencia
-        suficiente para rechazar la hipótesis nula (p-value>0.05). 
+        <p>Para determinar si nuestros datos siguen una distribución normal, se aplican pruebas de normalidad que comparan la distribución empírica con una distribución normal teórica; gráficamente, 
+          la normalidad se refleja en una curva de campana simétrica centrada en la media. Entre las pruebas más utilizadas se encuentran Shapiro-Wilk, Kolmogorov-Smirnov y Anderson-Darling, cada una 
+          con sensibilidad distinta según el tamaño de muestra y la forma de los datos. Estas pruebas evalúan si la diferencia entre ambas distribuciones es lo suficientemente pequeña como para aceptar 
+          la hipótesis de normalidad, lo cual se interpreta mediante el valor p: si el p-value es menor a 0.05, se rechaza la hipótesis nula y se concluye que los datos son estadísticamente significativos; 
+          si es mayor, no hay evidencia suficiente para rechazarla. En nuestros casos de estudio, se aplicaron principalmente las pruebas de Shapiro-Wilk y Wilcoxon, esta última útil para comparar medianas
+          en muestras relacionadas cuando no se cumple la normalidad. La elección entre ambas depende del tipo de variable, el tamaño muestral y la distribución observada, y permite establecer si los datos presentan 
+          diferencias significativas o si se mantienen dentro del rango esperado bajo la hipótesis nula.
+
          </p>
       </section>
 
       <section id="introduccion-Pruebas paramétricas y no paramétricas">
         <h2>Pruebas paramétricas y no paramétricas</h2>
-        <title>Pruebas paramétricas</title>
+        <h3>Pruebas paramétricas</h3>
       <p> Las metodologías paramétricas suponen que los datos provienen de una población con
           distribución normal. Estas pruebas suelen tener mayor poder estadístico y son ampliamente
           utilizadas en análisis clásicos, algunos ejemplos clásicos son:
@@ -276,6 +275,37 @@
           Cuando hay valores atípicos o distribuciones sesgadas.
           Cuando el tamaño de muestra es pequeño.
           Cuando se violan otros supuestos paramétricos.</p>
+<section id="pruebas-parametricas">
+  <h2>📊 Pruebas Paramétricas</h2>
+  <p>
+    Las metodologías paramétricas suponen que los datos provienen de una población con distribución normal. Estas pruebas tienen mayor poder estadístico y son ampliamente utilizadas en análisis clásicos, especialmente cuando se trabaja con variables cuantitativas y continuas. Se aplican cuando la población tiene una distribución aproximadamente normal, no se conoce la desviación estándar poblacional y el tamaño muestral es pequeño (generalmente n &lt; 30).
+  </p>
+  <ul>
+    <li><strong>T de Student:</strong> Compara medias entre dos grupos.</li>
+    <li><strong>Prueba T:</strong> Compara medias entre uno o dos grupos.</li>
+    <li><strong>ANOVA:</strong> Compara medias entre tres o más grupos.</li>
+    <li><strong>Regresión Lineal:</strong> Evalúa la relación entre variables.</li>
+    <li><strong>Correlación de Pearson:</strong> Mide la asociación lineal, por ejemplo, entre horas de estudio y desempeño en un examen.</li>
+  </ul>
+</section>
+
+<section id="pruebas-no-parametricas">
+  <h2>📈 Pruebas No Paramétricas</h2>
+  <p>
+    La estadística no paramétrica incluye métodos que no requieren que los datos se ajusten a modelos teóricos. Estas pruebas son útiles cuando los datos no siguen una distribución normal, son ordinales o categóricos, presentan valores atípicos o distribuciones sesgadas, o cuando se violan otros supuestos paramétricos. También se aplican en muestras pequeñas donde los métodos paramétricos no son apropiados.
+  </p>
+  <ul>
+    <li><strong>Wilcoxon:</strong> Compara dos grupos relacionados.</li>
+    <li><strong>Mann-Whitney U:</strong> Compara dos grupos independientes.</li>
+    <li><strong>Kruskal-Wallis:</strong> Compara más de dos grupos.</li>
+    <li><strong>Spearman:</strong> Evalúa correlación ordinal o no lineal.</li>
+  </ul>
+</section>
+
+
+
+
+
 
 
 </section>
