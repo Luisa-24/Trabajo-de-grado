@@ -15,12 +15,13 @@
       /* Subtabla de contenidos (subsecciones) */
       .subtoc { list-style: none; padding-left: 0.5rem; margin-top: 0.25rem; margin-bottom: 0.75rem;
         overflow: hidden; /* para animación */
-        max-height: 999px; /* alto grande por defecto (expandido) */
+        max-height: 0; /* oculto por defecto */
         transition: max-height 260ms ease, opacity 200ms ease;
-        opacity: 1;
+        opacity: 0;
       }
       .subtoc li { margin: 0.15rem 0; }
       .subtoc.collapsed { max-height: 0; opacity: 0; }
+      .subtoc.expanded { max-height: 999px; opacity: 1; }
 
       /* Caret (triángulo) junto a 'Introducción' que rota según aria-expanded */
       #toc-introduccion {
@@ -167,8 +168,8 @@
       <h2>Contenido</h2>
       <nav>
         <!-- Añadimos id para poder asociar el toggle desde JS. -->
-        <a href="#introduccion" id="toc-introduccion" aria-expanded="true">Introducción</a>
-        <ul class="subtoc">
+        <a href="#introduccion" id="toc-introduccion" aria-expanded="false">Introducción</a>
+        <ul class="subtoc collapsed">
           <li><a href="#introduccion-Test de normalidad">Test de normalidad</a></li>
           <li><a href="#introduccion-Pruebas paramétricas y no paramétricas">Pruebas</a></li>
           <li><a href="#introduccion-Matrices de correlación">Matriz</a></li>
@@ -318,10 +319,19 @@
       if (introTocLink && subtoc) {
         // Mantener aria-expanded actualizado
         introTocLink.addEventListener('click', (e) => {
-          // Alternar visualización de la sublista. No prevenimos la navegación por ancla.
-          subtoc.classList.toggle('collapsed');
-          const expanded = !subtoc.classList.contains('collapsed');
-          introTocLink.setAttribute('aria-expanded', String(expanded));
+          e.preventDefault(); // Evitar navegación inmediata
+          // Alternar visualización de la sublista
+          const isCurrentlyCollapsed = subtoc.classList.contains('collapsed');
+          
+          if (isCurrentlyCollapsed) {
+            subtoc.classList.remove('collapsed');
+            subtoc.classList.add('expanded');
+            introTocLink.setAttribute('aria-expanded', 'true');
+          } else {
+            subtoc.classList.remove('expanded');
+            subtoc.classList.add('collapsed');
+            introTocLink.setAttribute('aria-expanded', 'false');
+          }
         });
       }
 
