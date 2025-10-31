@@ -14,7 +14,27 @@
         --shadow: 0 2px 8px rgba(0,0,0,0.1);
       }
       body { font-family: Arial, Helvetica, sans-serif; max-width: 1000px; margin: 0 auto; padding: 1rem; line-height:1.5; }
-      header { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem 0; position:relative; }
+      header { 
+        display:flex; 
+        justify-content:space-between; 
+        align-items:center; 
+        gap:1.5rem; 
+        padding:2rem 0; 
+        position:relative;
+        border-bottom: 3px solid var(--accent-color);
+        margin-bottom: 1.5rem;
+      }
+      header h1 {
+        flex: 1;
+        margin: 0;
+        font-size: 1.8rem;
+        color: var(--text);
+      }
+      .logo-unal {
+        height: 80px;
+        width: auto;
+        object-fit: contain;
+      }
       nav a { margin-right:0.75rem; text-decoration:none; color:#0366d6; }
       nav a:hover { text-decoration:underline; }
       section { padding:1.5rem 0; border-top:1px solid #eee; }
@@ -206,6 +226,9 @@
     <main id="main-content">
       <header>
         <h1>Documentación del Trabajo de Grado</h1>
+        <img src="https://unal.edu.co/typo3conf/ext/unal_skin_default/Resources/Public/images/escudoUnal_black.png" 
+             alt="Logo Universidad Nacional de Colombia" 
+             class="logo-unal">
       </header>
 
     <section id="introduccion">
@@ -246,7 +269,6 @@
       </section>
 
       <section id="introduccion-Pruebas paramétricas y no paramétricas">
-        <h2>Pruebas paramétricas y no paramétricas</h2>
       <p>Las pruebas paramétricas y no paramétricas son pilares fundamentales del análisis estadístico, utilizadas para evaluar hipótesis, comparar grupos, y establecer relaciones entre variables con base en evidencia cuantitativa. 
         La elección entre una u otra no es arbitraria: depende directamente de las propiedades de los datos, como su tipo (cuantitativo, ordinal, categórico), su distribución (normal o no normal), la presencia de valores atípicos, 
         y el tamaño de la muestra..</p>
