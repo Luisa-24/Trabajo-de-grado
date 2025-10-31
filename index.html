@@ -13,15 +13,23 @@
       .hero { max-width:800px; }
       .toc { background:#f9f9f9; padding:0.75rem; border-radius:6px; }
       /* Subtabla de contenidos (subsecciones) */
-      .subtoc { list-style: none; padding-left: 0.5rem; margin-top: 0.25rem; margin-bottom: 0.75rem;
+      .subtoc { 
+        list-style: none; 
+        padding-left: 0.5rem; 
+        margin-top: 0.25rem; 
+        margin-bottom: 0.75rem;
         overflow: hidden; /* para animación */
-        max-height: 0; /* oculto por defecto */
         transition: max-height 260ms ease, opacity 200ms ease;
-        opacity: 0;
       }
       .subtoc li { margin: 0.15rem 0; }
-      .subtoc.collapsed { max-height: 0; opacity: 0; }
-      .subtoc.expanded { max-height: 999px; opacity: 1; }
+      .subtoc.collapsed { 
+        max-height: 0 !important; 
+        opacity: 0 !important; 
+      }
+      .subtoc.expanded { 
+        max-height: 999px !important; 
+        opacity: 1 !important; 
+      }
 
       /* Caret (triángulo) junto a 'Introducción' que rota según aria-expanded */
       #toc-introduccion {
