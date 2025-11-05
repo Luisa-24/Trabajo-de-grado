@@ -470,14 +470,14 @@
         </p>
       
         <img src="Screenshot 2025-09-08 130637.png" alt= "Gráfico de resultados" width="600" height="400" >
-
+      
          
       </p>
       </section>
 
       <section id="conclusiones">
         <h2>Conclusiones</h2>
-        <p> Ha sido una experiencia totalmente nueva para mí que me ha permitido aprender y crecer tanto como persona como profesional. 
+        <p>Ha sido una experiencia totalmente nueva para mí que me ha permitido aprender y crecer tanto como persona como profesional. 
         Cada día ha sido un reto para mí y pese a que al principio me costó adaptarme, con el tiempo me he dado cuenta y he aprendido
         que no tengo todas las respuestas, pero estoy dispuesta a seguir mejorando y aprendiendo. También que está bien pedir ayuda en vez de 
         quedarme días estancada intentando entender algo por mi propia cuenta, trabajar en equipo es algo fundamental para el crecimiento personal. 
@@ -521,8 +521,8 @@
         introTocLink.addEventListener('click', (e) => {
           e.preventDefault(); // Evitar navegación por defecto
           
-          // Alternar visualización de la sublista
-          const isCurrentlyCollapsed = subtoc.classList.contains('collapsed');
+        // Alternar visualización de la sublista
+        const isCurrentlyCollapsed = subtoc.classList.contains('collapsed');
           
           if (isCurrentlyCollapsed) {
             subtoc.classList.remove('collapsed');
@@ -542,12 +542,12 @@
         });
       }
 
-      //estado inicial ( sidebar visible en desktop)
+      // estado inicial (sidebar visible en desktop)
       let isCollapsed = false;
 
-      const toggleMenu = ()=> {
+      const toggleMenu = () => {
         // en pantallas pequeñas
-        if (window.innerWidth <= 900){
+        if (window.innerWidth <= 900) {
           sidebar.classList.toggle('active');
         } else {
           isCollapsed = !isCollapsed;
@@ -560,7 +560,7 @@
 
         // Cerrar el menu si hace click fuera de él
         document.addEventListener('click', (event) => {
-          if (window.innerWidth <= 900 && !sidebar.contains(event.target) && !menuBtn.contains(event.target)){
+          if (window.innerWidth <= 900 && !sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
             sidebar.classList.remove('active');
           }
         });
