@@ -77,6 +77,7 @@
       section { padding:1.5rem 0; border-top:1px solid #eee; }
       .hero { max-width:800px; }
       .toc { background:#f9f9f9; padding:0.75rem; border-radius:6px; }
+      
       /* Subtabla de contenidos (subsecciones) */
       .subtoc { 
         list-style: none; 
@@ -455,10 +456,10 @@
         aplicamos la prueba de Wilcoxon. La prueba de Wilcoxon arrojó un p‑value < 0,05, evidenciando diferencias estadísticamente significativas 
         entre ambas imputaciones. Con base en estos resultados se optó por la imputación mediante la función Beta, por mostrar un comportamiento más
         robusto y preservar mejor las características originales de la base de datos. A continuación se presenta el código empleado y un gráfico que 
-        ilustran los resultados obtenidos.  </p>
+        ilustran los resultados obtenidos.</p>
 
 
-        <img src="Screenshot 2025-09-08 144922 (2).png" alt= "Gráfico de resultados" width="600" height="400" >
+       <img src="Screenshot 2025-09-08 144922 (2).png" alt= "Gráfico de resultados" width="600" height="400" >
 
        <p> En esta gráfica se observa la comparación entre las dos versiones de los datos: una con celdas faltantes imputadas por la media (en azul) 
         y otra con celdas faltantes imputadas mediante una función Beta (en naranja). Ambas distribuciones muestran diferencias notables en su forma y dispersión,
@@ -471,7 +472,7 @@
         <img src="Screenshot 2025-09-08 130637.png" alt= "Gráfico de resultados" width="600" height="400" >
 
          
-        </p>
+      </p>
       </section>
 
       <section id="conclusiones">
@@ -515,6 +516,7 @@
       const introTocLink = document.getElementById('toc-introduccion');
       const subtoc = document.querySelector('.subtoc');
       if (introTocLink && subtoc) {
+        
         // Mantener aria-expanded actualizado
         introTocLink.addEventListener('click', (e) => {
           e.preventDefault(); // Evitar navegación por defecto
