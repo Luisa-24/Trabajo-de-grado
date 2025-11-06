@@ -356,17 +356,17 @@
 
     <section id="introduccion">
       <h2>Introducción</h2>
-      <p>El objetivo de este documento es plasmar todo lo aprendido a partir de os proyectos realizados. 
-      La presentación de los temás se harán en orden cronólogico, es decir, desde la primera actividad propuesta
+      <p>El objetivo de este documento es plasmar todo lo aprendido a partir de los proyectos realizados. 
+      La presentación de los temas se harán en orden cronológico, es decir, desde la primera actividad propuesta
       tras mi llegada hasta la última correspondiente a la fecha de entrega de este trabajo.
-      Se utilizaron diferentes herramientas y métodologías a lo largo del proceso. Empezamos verficando algunas fórmulas estadisticas 
+      Se utilizaron diferentes herramientas y métodologías a lo largo del proceso. Empezamos verificando algunas fórmulas estadísticas 
       ya creadas con el fin de entender su funcionamiento y aplicación y detectar errores en ellas que se pudieran reportar para hacerles su respectiva corrección.
-      En el proceso de verificar estás formulas se descubrió que pese a que estaban bien, la base de datos era carente de información, pues contaba conmuchas celdas vacías.
+      En el proceso de verificar estas fórmulas se descubrió que pese a que estaban bien, la base de datos era carente de información, pues contaba con muchas celdas vacías.
       Allí se introdujo entonces las pruebas paramétricas y no parámetricas en donde comparábamos dos datos diferentes. Una con las celdas vacías llenadas con promedios y otra llenando
       celdas vacías con la función Beta, que básicamente lo que hacía era darle un valor a esas celdas vacías entre  0 y 1 de tal manera que no se alterara la información que ya se tenía
-      al momento de hacer cálculos y utilizar las fórmulas que ya estaban construidas. Con estas dos datas lo que hicimos fue primero verificar si los datos se comportaban con una distribción 
+      al momento de hacer cálculos y utilizar las fórmulas que ya estaban construidas. Con estas dos datas lo que hicimos fue primero verificar si los datos se comportaban con una distribución 
       normal o no y dependiendo eso decidimos si aplicar una prueba paramétrica o una no paramétrica. Como el resultado nos arrojo que los datos no se comportaban como una distribución
-      normal se decide aplicar la prueba Wilcoxon para mirar si los datos eran estadisticamente significativos (p-value<0.05)   o no hay evidencia suficiente para rechazar la hipótesis nula (p-value>0.05).  
+      normal se decide aplicar la prueba Wilcoxon para mirar si los datos eran estadísticamente significativos (p-value<0.05)   o no hay evidencia suficiente para rechazar la hipótesis nula (p-value>0.05).  
       Por otro lado se utilizaron matrices de correlación para mirar la relación que habían entre dos tablas de datos y su correlación entre ellas. 
       Tanbién en el proceso de aprender a limpiar data con el fin de tener una base de datos más rubusta y copleta, aparte de utilizar python con este fin
       utilizamos OpenRefine, que es  una herramienta útil que nos permite limpiar gran cantidas de datos de manera más optima y sencilla.
@@ -395,7 +395,7 @@
       <h2> Pruebas paramétricas y no paramétricas </h2>
       <p>Las pruebas paramétricas y no paramétricas son pilares fundamentales del análisis estadístico, utilizadas para evaluar hipótesis, comparar grupos, y establecer relaciones entre variables con base en evidencia cuantitativa. 
         La elección entre una u otra no es arbitraria: depende directamente de las propiedades de los datos, como su tipo (cuantitativo, ordinal, categórico), su distribución (normal o no normal), la presencia de valores atípicos, 
-        y el tamaño de la muestra..</p>
+        y el tamaño de la muestra.</p>
 <section id="pruebas-parametricas">
   <h2>Pruebas Paramétricas</h2>
   <p>
@@ -467,6 +467,16 @@
         Esto respalda la elección de la imputación mediante la función Beta como la opción más adecuada para preservar las características originales de la base de datos y mejorar la calidad del análisis posterior.
         En esta otra imagen se muestran las dos gráficas superpuestas para comparar visualmente las diferencias entre ambas imputaciones. Esto nos da una visión clara de cómo cada método afecta la distribución de los datos
         y nos permite identificar patrones o anomalías que podrían no ser evidentes al observar las gráficas por separado y a escoger la mejor distribución para el análisis posterior.
+
+        <p>Resultados obtenidos con matrices de correlación </p>
+        <p> Se generaron matrices de correlación utilizando la prueba de Pearson para dos conjuntos de datos diferentes con el fin de evaluar las relaciones entre múltiples variables. En la primera matriz, se empleó un esquema 
+          de colores que resaltan tanto las correlaciones altas como las bajas mediante gradiantes de color, facilitando la  identificación visual de patrones y asociasiones significativas entre las variables. En la segunda matriz,
+          se priorizo la visualización de las correlaciones más fuertes, lo que permitió enfocar el análisis en las relaciones más relevantes para nuestros objetivos. A continuación se presentan las dos matrices generadas, acompañadas
+          del código utilizado para su creación y una breve explicación de los resultados obtenidos.
+
+          <img src="ABO_Correlation (1).png" alt= "Gráfico de resultados" width="600" height="400" >
+           <img src="Tabla_Correlacion_Significativa3.png" alt= "Gráfico de resultados" width="600" height="400" >
+
 
 
         
