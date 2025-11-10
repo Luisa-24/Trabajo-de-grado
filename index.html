@@ -336,6 +336,8 @@
           <li><a href="#introduccion-Pruebas paramétricas y no paramétricas">Pruebas</a></li>
           <li><a href="#introduccion-Matrices de correlación">Matriz</a></li>
           <li><a href="#Introduccion-Limpieza de datos">Limpieza de datos</a></li>
+          <li><a href="#Introduccion-Macros">Macros</a></li>
+        </ul>
         </ul>
         <a href="#resultados">Resultados</a>
         <a href="#conclusiones">Conclusiones</a>
@@ -368,11 +370,11 @@
       normal o no y dependiendo eso decidimos si aplicar una prueba paramétrica o una no paramétrica. Como el resultado nos arrojo que los datos no se comportaban como una distribución
       normal se decide aplicar la prueba Wilcoxon para mirar si los datos eran estadísticamente significativos (p-value<0.05)   o no hay evidencia suficiente para rechazar la hipótesis nula (p-value>0.05).  
       Por otro lado se utilizaron matrices de correlación para mirar la relación que habían entre dos tablas de datos y su correlación entre ellas. 
-      Tanbién en el proceso de aprender a limpiar data con el fin de tener una base de datos más rubusta y copleta, aparte de utilizar python con este fin
-      utilizamos OpenRefine, que es  una herramienta útil que nos permite limpiar gran cantidas de datos de manera más optima y sencilla.
-      Por otro lado, para automatizar procesos repititvos y tediosos utilizamos macros en excel que luego fueron integradas con PowerAutomate
-      para hacer flujos automaticos que nos permitieron ahorrar tiempo y esfuerzo en tareas largas y repetitivas. A continuación daremos un informe detallado de 
-      cada una de estas actividades realizadas en esta introducción con el fin de plazmar lo aprendido. Se tratará de mostrar el resultado de cada cosa con el cuidado
+      También en el proceso de aprender a limpiar data con el fin de tener una base de datos más robusta y completa, aparte de utilizar python con este fin
+      utilizamos OpenRefine, que es  una herramienta útil que nos permite limpiar gran cantidades de datos de manera más óptima y sencilla.
+      Por otro lado, para automatizar procesos repetitivos y tediosos utilizamos macros en excel que luego fueron integradas con PowerAutomate
+      para hacer flujos automáticos que nos permitieron ahorrar tiempo y esfuerzo en tareas largas y repetitivas. A continuación daremos un informe detallado de
+      cada una de estas actividades realizadas en esta introducción con el fin de plasmar lo aprendido. Se tratará de mostrar el resultado de cada cosa con el cuidado
       de no revelar información confidencial de la empresa e incluso alterando los datos en los ejemplos y el código por seguridad y privacidad de la empresa. Se dará una breve explicación de cada uno de
       los temas tratados para poner el lector en contexto y se mostrará la aplicación que se tuvo en trabajo propuesto, así como los resultados obtenidos. Por último al final tendremos
       conclusiones y recomendaciones dadas en base a lo aprendido en todo este proceso.
@@ -446,7 +448,14 @@
           asegurar su integridad antes de cualquier análisis. Es una herramienta versátil para el análisis de datos.
         </p>
       </section>
+      <section id="Introduccion-Macros">
+       <h2>Macros</h2>
+       <p>Las macros son una herramienta poderosa en Excel que permite automatizar tareas repetitivas y complejas, facilitando el trabajo con grandes volúmenes de datos.
+        A través de la realización de una serie de comandos grabados, las macros pueden ejecutar múltiples acciones con un solo clic, ahorrando tiempo y reduciendo la posibilidad de errores humanos.
+        En nuestro caso, utilizamos macros para optimizar procesos como generación de reportes,recordatorio de fechas importantes etc. Además de grabar macros, también es posible editarlas y personalizarlas mediante el editor de Visual Basic para Aplicaciones (VBA),
+        lo que permite adaptar las automatizaciones a necesidades específicas. Integrar macros con herramientas como Power Automate amplía aún más sus capacidades, permitiendo crear flujos de trabajo automáticos que conectan Excel con otras aplicaciones y servicios.
 
+       </p>
       <section id="resultados">
         <h2>Resultados obtenidos</h2>
         <h2>  test de normalidad  </h2> 
@@ -467,18 +476,19 @@
         lo que se refleja en el resultado de la prueba de Wilcoxon, que indicó un p‑value < 0,05, confirmando que las diferencias entre ambas imputaciones son estadísticamente significativas.
         Esto respalda la elección de la imputación mediante la función Beta como la opción más adecuada para preservar las características originales de la base de datos y mejorar la calidad del análisis posterior.
         En esta otra imagen se muestran las dos gráficas superpuestas para comparar visualmente las diferencias entre ambas imputaciones. Esto nos da una visión clara de cómo cada método afecta la distribución de los datos
-        y nos permite identificar patrones o anomalías que podrían no ser evidentes al observar las gráficas por separado y a escoger la mejor distribución para el análisis posterior.
+        y nos permite identificar patrones o anomalías que podrían no ser evidentes al observar las gráficas por separado y a escoger la mejor distribución para el análisis posterior. </p>
 
-        <h2>Resultados obtenidos con matrices de correlación </h2>
+        <h2>Matrices de correlación </h2>
         <p> Se generaron matrices de correlación utilizando la prueba de Pearson para dos conjuntos de datos diferentes con el fin de evaluar las relaciones entre múltiples variables. En la primera matriz, se empleó un esquema 
           de colores que resaltan tanto las correlaciones altas como las bajas mediante gradiantes de color, facilitando la  identificación visual de patrones y asociasiones significativas entre las variables. En la segunda matriz,
           se priorizo la visualización de las correlaciones más fuertes, lo que permitió enfocar el análisis en las relaciones más relevantes para nuestros objetivos. A continuación se presentan las dos matrices generadas, acompañadas
           del código utilizado para su creación y una breve explicación de los resultados obtenidos. </p>
 
+
           <p><img src="ABO_Correlation (1).png" alt= "Gráfico de resultados" width="600" height="400" ></p>
            <p><img src="Tabla_Correlacion_Significativa3.png" alt= "Gráfico de resultados" width="600" height="400" ></p>
 
-        <h2>Resultados obtenidos de limpieza de datos </h2>
+        <h2>limpieza de datos </h2>
         <p> Se aplicaron diversas técnicas de limpieza de datos para mejorar la calidad de los mismos antes de realizar el análisis. Esto incluyó la eliminación de duplicados, el tratamiento de valores atípicos y la normalización de las variables.
            A continuación se presentan los resultados obtenidos tras aplicar estas técnicas, así como una breve descripción de cada uno de ellos. 
            <p> En esta imagen vemos la vista general de la página, aquí simplemente subimos el documento tipo xlsx, csv o json. </p>
@@ -489,7 +499,23 @@
               hacer con los datos, ya sea eliminar duplicados, filtrar por valores específicos, transformar datos, entre otros. Simplemente tenemos que oprimir la flecha y buscar la opción deseada. También hay opciones más complejas  en la cual se agrega
               un código y se pueden realizar transformaciones más avanzadas, como por ejemplo, si agregamos el código value.replace(/[^0-9]/, "")  en la opción transform podemos eliminar de los datos carácteres inoportunos que ensucian la data. </p>
 
-             <p><img src="OpenRefine2.png" alt= "Vista general de la página" width="600" height="400" ></p>
+           <p><img src="OpenRefine2.png" alt= "Vista general de la página" width="600" height="400" ></p>
+
+          <h2>Macros en excel </h2>
+          <p> Creamos una macro con la intención de que funcionara como un recordatorio automatico para fechas de un excel que estuvieran a 5, 15 y 30 días de vencerse. La macro lo que hacía era revisar la columna de fechas y dependiendo de la fecha actual 
+            del sistema, si alguna fecha estaba a 5, 15 o 30 días de vencerse, automáticamente se enviaba un correo electrónico a la persona encargada de esa tarea para recordarle que esa fecha estaba próxima a vencerse. El correo debía contener un mensaje recordatorio,
+            los días que faltaban para que la fecha expirara y un link que direccionara al archivo de excel, con el fin de tener el material a la mano para hacerle las debidas manipulaciones. Esta, con ayuda de un organizador de tareas nos permitió tener un flujo de trabajo más organizado y eficiente.
+            Esto nos ayudó a automatizar un proceso que antes se hacía manualmente y que consumía mucho tiempo y esfuerzo. A continuación se muestra el código utilizado para crear esta macro en VBA (Visual Basic for Applications). A continuación se mostrara la estructura general que contenía el código de la macro.
+            <p><img src="Macro1.png" alt= "Vista codigo parte 1" width="600" height="400" ></p>
+            <p><img src="Macro2.png" alt= "Vista codigo parte 2" width="600" height="400" ></p>
+
+            En estas imagenes se observan como está estructurado el código de la macro, en la primera parte se definen las variables que se van a utilizar, como la hoja de excel, la columna de fechas, el rango de celdas a revisar, entre otras, y se realiza de manera lógica el código de tal manera que recorra las columnas necesarias para
+            obtenga las fechas, verifique los días que faltan para que estas fechas expiren y verifique que los datos de la columna Status se encuentren activos.
+            En la segunda parte de la macro se envían los correos electrónicos correspondientes. Hace la conexión con outlook y envía los correos electrónicos con el mensaje recordatorio y el link al archivo de excel con una tablita que muestra la información necesaria, de tal manera que la persona que recibe el correo 
+          sepa que hacer y lo resuelva de forma rápida y sencilla. A continuación se muestra la estructura del correo recibido </p>
+          <p><img src="Macro3.png" alt= "Correo recibido" width="600" height="400" ></p>
+
+        
 
 
 
