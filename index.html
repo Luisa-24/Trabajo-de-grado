@@ -274,15 +274,76 @@
       border-top: 1px solid #e9ecef;
     }
     
-    footer {
-      font-size: 0.9rem;
-      color: #6c757d;
-      padding: 2rem 0 1rem;
-      border-top: 2px solid #e9ecef;
-      margin-top: 3rem;
-      text-align: center;
-    }
+      footer {
+        font-size: 0.9rem;
+        color: #6c757d;
+        padding: 2rem 0 1rem;
+        border-top: 2px solid #e9ecef;
+        margin-top: 3rem;
+        text-align: center;
+      }
 
+      /* Estilos profesionales para imágenes */
+      .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2.5rem 0;
+        gap: 0.8rem;
+      }
+
+      .image-wrapper {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        border: 1px solid #e9ecef;
+        transition: all 0.3s ease;
+        max-width: 100%;
+        display: inline-block;
+      }
+
+      .image-wrapper:hover {
+        box-shadow: 0 8px 24px rgba(3, 102, 214, 0.25);
+        transform: translateY(-4px);
+        border-color: var(--accent-color);
+      }
+
+      .image-wrapper img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 700px;
+        object-fit: contain;
+      }
+
+      .image-caption {
+        text-align: center;
+        font-size: 0.95rem;
+        color: #6c757d;
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      /* Grid para múltiples imágenes */
+      .images-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin: 2.5rem 0;
+      }
+
+      .images-grid .image-container {
+        margin: 0;
+      }
+
+      @media (max-width: 900px) {
+        .images-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+      }
+      
       @media (max-width: 900px) {
       header {
         flex-direction: column;
@@ -480,7 +541,7 @@
        </p>
       <section id="resultados">
         <h2>Resultados obtenidos</h2>
-        <h2>  test de normalidad  </h2> 
+        <h3>Test de Normalidad</h3> 
         <p>Realizamos pruebas de normalidad (principalmente Shapiro–Wilk) que mostraron p‑values menores a 0,05, 
         lo que indica que las distribuciones de las muestras se apartan de la normalidad. En consecuencia utilizamos pruebas no paramétricas;
         para la comparación entre las dos versiones de los datos (celdas faltantes imputadas por la media vs. imputadas mediante una función Beta)
@@ -490,8 +551,18 @@
         ilustran los resultados obtenidos.</p>
 
 
-        <img src="Screenshot 2025-09-08 144922 (2).png" alt= "Gráfico de resultados" width="600" height="400" >
-        <img src="Screenshot 2025-09-08 130637.png" alt= "Gráfico de resultados" width="600" height="400" >
+        <div class="image-container">
+          <div class="image-wrapper">
+            <img src="Screenshot 2025-09-08 144922 (2).png" alt="Gráfico de comparación de distribuciones">
+          </div>
+          <p class="image-caption">Figura 1: Comparación de distribuciones - Imputación por media vs Beta</p>
+        </div>
+        <div class="image-container">
+          <div class="image-wrapper">
+            <img src="Screenshot 2025-09-08 130637.png" alt="Gráficos superpuestos para análisis">
+          </div>
+          <p class="image-caption">Figura 2: Gráficas superpuestas para análisis comparativo</p>
+        </div>
 
        <p> En esta gráfica se observa la comparación entre las dos versiones de los datos: una con celdas faltantes imputadas por la media (en azul) 
         y otra con celdas faltantes imputadas mediante una función Beta (en naranja). Ambas distribuciones muestran diferencias notables en su forma y dispersión,
@@ -500,48 +571,86 @@
         En esta otra imagen se muestran las dos gráficas superpuestas para comparar visualmente las diferencias entre ambas imputaciones. Esto nos da una visión clara de cómo cada método afecta la distribución de los datos
         y nos permite identificar patrones o anomalías que podrían no ser evidentes al observar las gráficas por separado y a escoger la mejor distribución para el análisis posterior. </p>
 
-        <h2>Matrices de correlación </h2>
+        <h3>Matrices de Correlación</h3>
         <p> Se generaron matrices de correlación utilizando la prueba de Pearson para dos conjuntos de datos diferentes con el fin de evaluar las relaciones entre múltiples variables. En la primera matriz, se empleó un esquema 
           de colores que resaltan tanto las correlaciones altas como las bajas mediante gradiantes de color, facilitando la  identificación visual de patrones y asociasiones significativas entre las variables. En la segunda matriz,
           se priorizo la visualización de las correlaciones más fuertes, lo que permitió enfocar el análisis en las relaciones más relevantes para nuestros objetivos. A continuación se presentan las dos matrices generadas, acompañadas
           del código utilizado para su creación y una breve explicación de los resultados obtenidos. </p>
 
-          <style>
-  .imagen {
-    display: inline-block;
-    margin: 5px;
-  }
-</style>
+        <div class="images-grid">
+          <div class="image-container">
+            <div class="image-wrapper">
+              <img src="ABO_Correlation (1).png" alt="Matriz de correlación ABO">
+            </div>
+            <p class="image-caption">Figura 3: Matriz de correlación con gradientes de color</p>
+          </div>
+          <div class="image-container">
+            <div class="image-wrapper">
+              <img src="Tabla_Correlacion_Significativa3.png" alt="Tabla de correlación significativa">
+            </div>
+            <p class="image-caption">Figura 4: Correlaciones significativas - Análisis enfocado</p>
+          </div>
+        </div>
 
-          <p><img src="ABO_Correlation (1).png" alt= "Gráfico de resultados" width="600" height="400" >
-           <p><img src="Tabla_Correlacion_Significativa3.png" alt= "Gráfico de resultados" width="600" height="400" >
-
-        <h2>limpieza de datos </h2>
+        <h2>Limpieza de datos</h2>
         <p> Se aplicaron diversas técnicas de limpieza de datos para mejorar la calidad de los mismos antes de realizar el análisis. Esto incluyó la eliminación de duplicados, el tratamiento de valores atípicos y la normalización de las variables.
            A continuación se presentan los resultados obtenidos tras aplicar estas técnicas, así como una breve descripción de cada uno de ellos. 
-           <p> En esta imagen vemos la vista general de la página, aquí simplemente subimos el documento tipo xlsx, csv o json. </p>
+           <p>En esta imagen vemos la vista general de la página, aquí simplemente subimos el documento tipo xlsx, csv o json.</p>
         
-            <img src="OpenRefine.png" alt= "Vista general de la página" width="600" height="400" >
+          <div class="image-container">
+            <div class="image-wrapper">
+              <img src="OpenRefine.png" alt="Vista general de OpenRefine">
+            </div>
+            <p class="image-caption">Figura 5: Interfaz principal de OpenRefine</p>
+          </div>
 
-            <p> En esta imagen se puede ver el proceso de limpieza de datos, donde se pueden aplicar diversas transformaciones y filtros para mejorar la calidad de los datos. En las flechas vemos diferentes opciones que se ajustan a lo que necesito 
-              hacer con los datos, ya sea eliminar duplicados, filtrar por valores específicos, transformar datos, entre otros. Simplemente tenemos que oprimir la flecha y buscar la opción deseada. También hay opciones más complejas  en la cual se agrega
-              un código y se pueden realizar transformaciones más avanzadas, como por ejemplo, si agregamos el código value.replace(/[^0-9]/, "")  en la opción transform podemos eliminar de los datos carácteres inoportunos que ensucian la data. </p>
+            <p>En esta imagen se puede ver el proceso de limpieza de datos, donde se pueden aplicar diversas transformaciones y filtros para mejorar la calidad de los datos. En las flechas vemos diferentes opciones que se ajustan a lo que necesito hacer con los datos, ya sea eliminar duplicados, filtrar por valores específicos, transformar datos, entre otros. Simplemente tenemos que oprimir la flecha y buscar la opción deseada. También hay opciones más complejas en la cual se agrega un código y se pueden realizar transformaciones más avanzadas, como por ejemplo, si agregamos el código <code>value.replace(/[^0-9]/, "")</code> en la opción transform podemos eliminar de los datos carácteres inoportunos que ensucian la data.</p>
 
-           <p><img src="OpenRefine2.png" alt= "Vista general de la página" width="600" height="400" ></p>
+          <div class="image-container">
+            <div class="image-wrapper">
+              <img src="OpenRefine2.png" alt="Proceso de limpieza de datos en OpenRefine">
+            </div>
+            <p class="image-caption">Figura 6: Opciones de transformación y filtrado de datos</p>
+          </div>
 
-          <h2>Macros en excel </h2>
+          <h2>Macros en Excel</h2>
           <p> Creamos una macro con la intención de que funcionara como un recordatorio automatico para fechas de un excel que estuvieran a 5, 15 y 30 días de vencerse. La macro lo que hacía era revisar la columna de fechas y dependiendo de la fecha actual 
             del sistema, si alguna fecha estaba a 5, 15 o 30 días de vencerse, automáticamente se enviaba un correo electrónico a la persona encargada de esa tarea para recordarle que esa fecha estaba próxima a vencerse. El correo debía contener un mensaje recordatorio,
             los días que faltaban para que la fecha expirara y un link que direccionara al archivo de excel, con el fin de tener el material a la mano para hacerle las debidas manipulaciones. Esta, con ayuda de un organizador de tareas nos permitió tener un flujo de trabajo más organizado y eficiente.
             Esto nos ayudó a automatizar un proceso que antes se hacía manualmente y que consumía mucho tiempo y esfuerzo. A continuación se muestra el código utilizado para crear esta macro en VBA (Visual Basic for Applications). A continuación se mostrara la estructura general que contenía el código de la macro.
-            <p><img src="Macro1.png" alt= "Vista codigo parte 1" width="600" height="400" ></p>
-            <p><img src="Macro2.png" alt= "Vista codigo parte 2" width="600" height="400" ></p>
+          
+          <div class="images-grid">
+            <div class="image-container">
+              <div class="image-wrapper">
+                <img src="Macro1.png" alt="Código de macro - Parte 1">
+              </div>
+              <p class="image-caption">Figura 7: Definición de variables y estructura inicial</p>
+            </div>
+            <div class="image-container">
+              <div class="image-wrapper">
+                <img src="Macro2.png" alt="Código de macro - Parte 2">
+              </div>
+              <p class="image-caption">Figura 8: Lógica de validación y procesamiento de fechas</p>
+            </div>
+          </div>
 
-            En estas imagenes se observan como está estructurado el código de la macro, en la primera parte se definen las variables que se van a utilizar, como la hoja de excel, la columna de fechas, el rango de celdas a revisar, entre otras, y se realiza de manera lógica el código de tal manera que recorra las columnas necesarias para
-            obtenga las fechas, verifique los días que faltan para que estas fechas expiren y verifique que los datos de la columna Status se encuentren activos.
-            En la segunda parte de la macro se envían los correos electrónicos correspondientes. Hace la conexión con outlook y envía los correos electrónicos con el mensaje recordatorio y el link al archivo de excel con una tablita que muestra la información necesaria, de tal manera que la persona que recibe el correo 
-          sepa que hacer y lo resuelva de forma rápida y sencilla. A continuación se muestra la estructura del correo recibido </p>
-          <p><img src="Macro3.png" alt= "Correo recibido" width="600" height="400" ></p>
+            <p>En estas imágenes se observan cómo está estructurado el código de la macro. En la primera parte se definen las variables que se van a utilizar, como la hoja de excel, la columna de fechas, el rango de celdas a revisar, entre otras, y se realiza de manera lógica el código de tal manera que recorra las columnas necesarias para obtener las fechas, verificar los días que faltan para que estas fechas expiren y verificar que los datos de la columna Status se encuentren activos.
+            
+En la segunda parte de la macro se envían los correos electrónicos correspondientes. Hace la conexión con Outlook y envía los correos electrónicos con el mensaje recordatorio y el link al archivo de Excel con una tabla que muestra la información necesaria, de tal manera que la persona que recibe el correo sepa qué hacer y lo resuelva de forma rápida y sencilla. A continuación se muestra la estructura del correo recibido.</p>
+          
+          <div class="image-container">
+            <div class="image-wrapper">
+              <img src="Macro3.png" alt="Estructura del correo generado por la macro">
+            </div>
+            <p class="image-caption">Figura 9: Formato del correo electrónico generado automáticamente</p>
+          </div>
+          
+          <div class="image-container">
+            <div class="image-wrapper">
+              <img src="Macro3.png" alt="Estructura del correo generado por la macro">
+            </div>
+            <p class="image-caption">Figura 9: Formato del correo electrónico generado automáticamente</p>
+          </div>
       </section>
  
       <section id="conclusiones">
