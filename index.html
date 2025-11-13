@@ -343,6 +343,89 @@
           gap: 1.5rem;
         }
       }
+
+      /* Estilos para modal/lightbox */
+      .image-wrapper img {
+        cursor: pointer;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content {
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        animation: slideIn 0.3s ease;
+      }
+
+      .modal-content img {
+        width: 100%;
+        height: auto;
+        display: block;
+        max-height: 85vh;
+        object-fit: contain;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .modal-close:hover {
+        background: white;
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
       
       @media (max-width: 900px) {
       header {
@@ -379,6 +462,15 @@
       }
     }
   </style>
+
+  <!-- Modal para visualizar imágenes ampliadas -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <img id="modalImage" src="" alt="">
+    </div>
+  </div>
+
   </head>
   <body>
     <!-- Botón de hamburguesa -->
@@ -740,6 +832,44 @@ En la segunda parte de la macro se envían los correos electrónicos correspondi
         document.addEventListener('click', (event) => {
           if (window.innerWidth <= 900 && !sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
             sidebar.classList.remove('active');
+          }
+        });
+
+        // Funcionalidad del modal para imágenes
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+        const allImages = document.querySelectorAll('.image-wrapper img');
+
+        // Abrir modal al hacer click en imagen
+        allImages.forEach(img => {
+          img.addEventListener('click', function() {
+            modal.classList.add('active');
+            modalImage.src = this.src;
+            modalImage.alt = this.alt;
+            document.body.style.overflow = 'hidden'; // Prevenir scroll
+          });
+        });
+
+        // Cerrar modal al hacer click en botón X
+        modalClose.addEventListener('click', function() {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto'; // Restaurar scroll
+        });
+
+        // Cerrar modal al hacer click fuera de la imagen
+        modal.addEventListener('click', function(event) {
+          if (event.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+          }
+        });
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restaurar scroll
           }
         });
     </script>
