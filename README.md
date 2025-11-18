@@ -1,1 +1,2 @@
-Lo que se requiere con este repositorio es documentar todo lo que se ha hecho en las practicas 
+Este documento tiene como objetivo documentar y mostrar todo lo que he aprendido en las prácticas, buscando que haya una relación entre lo aprendido a lo largo de los años en la carrera de matemáticas y lo aprendido por mi paso en esta empresa estos 6 meses. 
+También pretende que conozca como es el entorno laboral para que cuando salga de la U pueda manejar con acertividad los nuevos retos que la  vida laboral trae consigo. 
