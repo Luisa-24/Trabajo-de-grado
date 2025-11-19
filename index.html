@@ -8,32 +8,43 @@
     <style>
       :root {
         --accent-color: #0366d6; 
-        --text: #333; 
+        --text: #2c3e50; 
+        --text-light: #6c757d;
         --accent: #0366d6; 
         --card: #fff;
-        --shadow: 0 2px 8px rgba(0,0,0,0.1); 
+        --shadow: 0 2px 8px rgba(0,0,0,0.08);
+        --shadow-lg: 0 8px 20px rgba(0,0,0,0.12);
       }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
       body { 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
         max-width: 1000px; 
         margin: 0 auto; 
         padding: 1rem; 
-        line-height:1.6;
+        line-height: 1.7;
         background: #fafafa;
+        color: var(--text);
+        font-size: 16px;
       }
       
       /* Header Profesional */
       header { 
-        display:flex; 
-        justify-content:space-between; 
-        align-items:center; 
-        gap:2rem; 
-        padding:2.5rem 2rem; 
-        position:relative;
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        gap: 2rem; 
+        padding: 3rem 2.5rem; 
+        position: relative;
         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06); 
-        margin-bottom: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.08); 
+        margin-bottom: 2.5rem;
         border-left: 5px solid var(--accent-color);
       }
       
@@ -46,18 +57,19 @@
       
       header h1 {
         margin: 0;
-        font-size: 2rem;
-        font-weight: 700;
-        color: #1a1a1a; 
-        letter-spacing: -0.5px;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #1a202c; 
+        letter-spacing: -0.8px;
         line-height: 1.2;
       }
       
       .header-subtitle {
-        font-size: 0.95rem;
-        color: #666;
-        font-weight: 400;
+        font-size: 1rem;
+        color: var(--text-light);
+        font-weight: 500;
         margin: 0;
+        letter-spacing: 0.2px;
       }
       
       .logo-unal {
@@ -72,11 +84,11 @@
         transform: scale(1.05);
       }
       
-      nav a { margin-right:0.75rem; text-decoration:none; color:#0366d6; }
-      nav a:hover { text-decoration:underline; }
-      section { padding:1.5rem 0; border-top:1px solid #eee; }
-      .hero { max-width:800px;}
-      .toc { background:#f9f9f9; padding:0.75rem; border-radius:6px; }
+      nav a { margin-right: 0.75rem; text-decoration: none; color: var(--accent-color); }
+      nav a:hover { text-decoration: underline; }
+      section { padding: 2rem 0; border-top: 1px solid #e9ecef; }
+      .hero { max-width: 800px; }
+      .toc { background: #f9f9f9; padding: 0.75rem; border-radius: 6px; }
       
       /* Subtabla de contenidos (subsecciones) */
       .subtoc { 
@@ -204,28 +216,29 @@
         transform: translateY(-2px);
       }
 
-      /* Main <content></content> */
+      /* Main Content */
       main {
         margin-left: 260px; 
-        padding: 2rem 3rem;
-        max-width:900px;
-        width :100%;
+        padding: 2.5rem 3.5rem;
+        max-width: 900px;
+        width: 100%;
         transition: margin-left 0.3s ease;
         background: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       }
       main.collapsed { margin-left: 0; }
 
       h2 { 
-        font-size :1.6rem;
-        font-weight:600;
-        margin-top:2.5rem;
-        margin-bottom: 1.2rem;
-        color:#1a1a1a;
-        border-bottom:2px solid var(--accent-color);
-        padding-bottom:0.5rem;
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-top: 3rem;
+        margin-bottom: 1.5rem;
+        color: var(--text);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 0.75rem;
         position: relative;
+        letter-spacing: -0.3px;
       }
       
       h2::before {
@@ -240,46 +253,44 @@
       }
       
       h3 { 
-        font-size:1.2rem;
-        font-weight:600;
-        margin-top:2rem;
-        margin-bottom:0.9rem;
-        color:#2c3e50;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-top: 2.2rem;
+        margin-bottom: 1rem;
+        color: var(--text);
+        letter-spacing: -0.2px;
       }
 
-    p { 
-      margin-bottom: 1.2rem;
-      text-align:justify;
-      color: #444;
-      line-height: 1.7;
-    }
+      p { 
+        margin-bottom: 1.4rem;
+        text-align: justify;
+        color: var(--text-light);
+        line-height: 1.8;
+        font-size: 1rem;
+      }
 
-    ul {
-      margin-left :1.5rem;
-      margin-bottom:1.2rem;
-      color: #444;
-    }
-    li {
-      margin-bottom:0.6rem;
-      line-height: 1.6;
-    }
+      ul {
+        margin-left: 2rem;
+        margin-bottom: 1.4rem;
+        color: var(--text-light);
+      }
+      
+      li {
+        margin-bottom: 0.7rem;
+        line-height: 1.8;
+      }
     
-    strong {
-      color: #1a1a1a;
-      font-weight: 600;
-    }
-    
-    section {
-      padding: 1.5rem 0;
-      border-top: 1px solid #e9ecef;
-    }
+      strong {
+        color: var(--text);
+        font-weight: 700;
+      }
     
       footer {
-        font-size: 0.9rem;
-        color: #6c757d;
-        padding: 2rem 0 1rem;
+        font-size: 0.95rem;
+        color: var(--text-light);
+        padding: 2.5rem 0 1.5rem;
         border-top: 2px solid #e9ecef;
-        margin-top: 3rem;
+        margin-top: 3.5rem;
         text-align: center;
       }
 
@@ -288,15 +299,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 2.5rem 0;
-        gap: 0.8rem;
+        margin: 3rem 0;
+        gap: 1rem;
       }
 
       .image-wrapper {
         background: white;
-        border-radius: 12px;
+        border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         border: 1px solid #e9ecef;
         transition: all 0.3s ease;
         max-width: 100%;
@@ -304,8 +315,8 @@
       }
 
       .image-wrapper:hover {
-        box-shadow: 0 8px 24px rgba(3, 102, 214, 0.25);
-        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(3, 102, 214, 0.2);
+        transform: translateY(-6px);
         border-color: var(--accent-color);
       }
 
