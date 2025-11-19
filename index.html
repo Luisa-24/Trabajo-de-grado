@@ -46,6 +46,12 @@
         box-shadow: 0 6px 16px rgba(0,0,0,0.08); 
         margin-bottom: 2.5rem;
         border-left: 5px solid var(--accent-color);
+        transition: all 0.3s ease;
+      }
+      
+      header:hover {
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        transform: translateY(-2px);
       }
       
       .header-content {
@@ -77,16 +83,25 @@
         width: auto;
         object-fit: contain;
         filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); 
-        transition: transform 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
       
       .logo-unal:hover {
-        transform: scale(1.05);
+        transform: scale(1.08) rotate(-3deg);
+        filter: drop-shadow(0 4px 8px rgba(3, 102, 214, 0.3));
       }
       
       nav a { margin-right: 0.75rem; text-decoration: none; color: var(--accent-color); }
       nav a:hover { text-decoration: underline; }
-      section { padding: 2rem 0; border-top: 1px solid #e9ecef; }
+      section { 
+        padding: 2rem 0; 
+        border-top: 1px solid #e9ecef;
+        transition: all 0.3s ease;
+      }
+      
+      section:hover {
+        padding-left: 0.5rem;
+      }
       .hero { max-width: 800px; }
       .toc { background: #f9f9f9; padding: 0.75rem; border-radius: 6px; }
       
@@ -131,15 +146,69 @@
         transform: rotate(-90deg);
       }
       
-      html { scroll-behavior: smooth; }
+      html { 
+        scroll-behavior: smooth; 
+      }
+      
+      /* Scrollbar personalizada */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--accent-color);
+        border-radius: 6px;
+        transition: background 0.3s ease;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #024fa0;
+      }
+      
+      /* Selección de texto personalizada */
+      ::selection {
+        background: var(--accent-color);
+        color: white;
+      }
+      
+      ::-moz-selection {
+        background: var(--accent-color);
+        color: white;
+      }
+      
       pre { 
-        background:#2d3748; 
-        color:#e2e8f0; 
-        padding:1rem; 
-        overflow:auto; 
-        border-radius:8px;
+        background: #2d3748; 
+        color: #e2e8f0; 
+        padding: 1.5rem; 
+        overflow: auto; 
+        border-radius: 12px;
         border-left: 4px solid var(--accent-color);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+      }
+      
+      pre:hover {
+        box-shadow: 0 8px 20px rgba(3, 102, 214, 0.15);
+        transform: translateY(-2px);
+      }
+      
+      code {
+        font-family: 'Courier New', Consolas, monospace;
+        background: rgba(3, 102, 214, 0.1);
+        color: var(--accent-color);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.9em;
+        transition: all 0.2s ease;
+      }
+      
+      code:hover {
+        background: rgba(3, 102, 214, 0.15);
+        transform: scale(1.05);
       }
 
       /* Sidebar */
@@ -171,18 +240,37 @@
         border-bottom: 2px solid var(--accent-color);
       }
       .sidebar nav a { 
-        display:flex; 
-        align-items:center; 
-        gap:0.6rem; 
+        display: flex; 
+        align-items: center; 
+        gap: 0.6rem; 
         text-decoration: none;
         color: #495057;
         padding: 0.65rem 1rem; 
-        border-radius:8px; 
-        transition: all 0.2s ease; 
-        font-weight:500;
+        border-radius: 8px; 
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        font-weight: 500;
         font-size: 0.95rem;
         margin-bottom: 0.3rem;
-      } 
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .sidebar nav a::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 3px;
+        background: var(--accent-color);
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+      }
+      
+      .sidebar nav a:hover::before {
+        transform: scaleY(1);
+      }
+      
       .sidebar nav a:hover {
         background: var(--accent-color);
         color: white;
@@ -222,11 +310,16 @@
         padding: 2.5rem 3.5rem;
         max-width: 900px;
         width: 100%;
-        transition: margin-left 0.3s ease;
+        transition: all 0.3s ease;
         background: #ffffff;
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       }
+      
+      main:hover {
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      }
+      
       main.collapsed { margin-left: 0; }
 
       h2 { 
@@ -239,6 +332,13 @@
         padding-bottom: 0.75rem;
         position: relative;
         letter-spacing: -0.3px;
+        transition: all 0.3s ease;
+        cursor: default;
+      }
+      
+      h2:hover {
+        color: var(--accent-color);
+        padding-left: 0.5rem;
       }
       
       h2::before {
@@ -259,6 +359,16 @@
         margin-bottom: 1rem;
         color: var(--text);
         letter-spacing: -0.2px;
+        transition: all 0.3s ease;
+        cursor: default;
+        padding-left: 0.5rem;
+        border-left: 3px solid transparent;
+      }
+      
+      h3:hover {
+        color: var(--accent-color);
+        border-left-color: var(--accent-color);
+        padding-left: 1rem;
       }
 
       p { 
@@ -278,11 +388,23 @@
       li {
         margin-bottom: 0.7rem;
         line-height: 1.8;
+        transition: all 0.2s ease;
+        cursor: default;
+      }
+      
+      li:hover {
+        color: var(--accent-color);
+        transform: translateX(5px);
       }
     
       strong {
         color: var(--text);
         font-weight: 700;
+        transition: color 0.2s ease;
+      }
+      
+      strong:hover {
+        color: var(--accent-color);
       }
     
       footer {
@@ -472,6 +594,49 @@
         display: flex;
       }
     }
+    
+    /* Indicador de progreso de lectura */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-color) 0%, #0052a3 100%);
+      z-index: 1000;
+      transition: width 0.1s ease-out;
+      box-shadow: 0 2px 4px rgba(3, 102, 214, 0.3);
+    }
+    
+    /* Botón scroll to top */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--accent-color);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(3, 102, 214, 0.3);
+      transition: all 0.3s ease;
+      z-index: 999;
+      border: none;
+      font-size: 1.5rem;
+    }
+    
+    .scroll-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(3, 102, 214, 0.4);
+    }
+    
+    .scroll-to-top.visible {
+      display: flex;
+    }
   </style>
 
   <!-- Modal para visualizar imágenes ampliadas -->
@@ -484,6 +649,12 @@
 
   </head>
   <body>
+    <!-- Barra de progreso de lectura -->
+    <div class="reading-progress" id="readingProgress"></div>
+    
+    <!-- Botón scroll to top -->
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+    
     <!-- Botón de hamburguesa -->
     <button class="hamburger" id="menuBtn" aria-label="Abrir menú">
       <i data-lucide="menu"></i>
@@ -1054,6 +1225,34 @@
             modal.classList.remove('active');
             document.body.style.overflow = 'auto'; // Restaurar scroll
           }
+        });
+
+        // Barra de progreso de lectura
+        const readingProgress = document.getElementById('readingProgress');
+        
+        window.addEventListener('scroll', function() {
+          const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+          const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrollPercent = (scrollTop / scrollHeight) * 100;
+          readingProgress.style.width = scrollPercent + '%';
+        });
+
+        // Botón scroll to top
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('visible');
+          } else {
+            scrollToTopBtn.classList.remove('visible');
+          }
+        });
+        
+        scrollToTopBtn.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
         });
     </script>
   </body>
