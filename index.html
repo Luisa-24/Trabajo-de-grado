@@ -160,13 +160,13 @@
       }
 
       ::-webkit-scrollbar-thumb {
-        background: var(--accent-color);
+        background: #000000;
         border-radius: 6px;
         transition: background 0.3s ease;
       }
 
       ::-webkit-scrollbar-thumb:hover {
-        background: #5c6064;
+        background: #333333;
       }
       
       /* Selección de texto personalizada */
@@ -191,7 +191,7 @@
         transition: all 0.3s ease;
       }
       
-      pre:hover {
+      pre:hover { 
         box-shadow: 0 8px 20px rgba(3, 102, 214, 0.15);
         transform: translateY(-2px);
       }
@@ -597,15 +597,7 @@
     
     /* Indicador de progreso de lectura */
     .reading-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 4px;
-      background: linear-gradient(90deg, #000000 0%, #333333 100%);
-      z-index: 1000;
-      transition: width 0.1s ease-out;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      display: none;
     }
     
     /* Botón scroll to top */
@@ -879,8 +871,6 @@
         BUSCARV, BUSCARH, tablas dinámicas y formatos condicionales, capacidades esenciales para 
         el análisis y gestión de datos empresariales. </p>
 
-
-
       <p>Una responsabilidad adicional que me fue asignada fue el acompañamiento y mentoría de 
          otro practicante en el uso de OpenRefine y técnicas de limpieza y depuración de datos. 
          Esta experiencia no solo fortaleció mis habilidades instructivas, sino que también 
@@ -900,10 +890,8 @@
          dirigidas a los equipos de trabajo, en las cuales demuestro el funcionamiento integral 
          del sistema, así como los aprendizajes y metodologías aplicadas,generando un impacto 
          práctico y educativo en la organización.  </p>
-
         </section>
     
-
       <section id="resultados">
         <h2>Resultados obtenidos</h2>
         <h3>Test de Normalidad</h3> 
@@ -918,7 +906,6 @@
         robusto y preservar mejor las características originales de la base de datos. 
         A continuación se presenta el código empleado y un gráfico que ilustran los resultados 
         obtenidos.</p>
-
 
         <div class="image-container">
           <div class="image-wrapper">
