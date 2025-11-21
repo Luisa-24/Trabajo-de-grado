@@ -396,6 +396,11 @@
         color: var(--accent-color);
         transform: translateX(5px);
       }
+      
+      .no-hover li:hover {
+        color: inherit;
+        transform: none;
+      }
     
       strong {
         color: var(--text);
@@ -770,7 +775,7 @@
     y continuas. Se aplican cuando la población tiene una distribución aproximadamente normal, 
     no se conoce la desviación estándar poblacional y el tamaño muestral es pequeño 
     (generalmente n &lt; 30). </p>
-  <ul>
+  <ul class="no-hover">
     <li><strong>T de Student:</strong> Compara medias entre dos grupos.</li>
     <li><strong>Prueba T:</strong> Compara medias entre uno o dos grupos.</li>
     <li><strong>ANOVA:</strong> Compara medias entre tres o más grupos.</li>
